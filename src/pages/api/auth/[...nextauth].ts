@@ -8,10 +8,7 @@ export default NextAuth({
   providers: [
     // OAuth authentication providers...
 
-    FacebookProvider({
-      clientId: process.env.FACEBOOK_ID as string,
-      clientSecret: process.env.FACEBOOK_SECRET as string
-    }),
+
     GoogleProvider({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string
@@ -24,10 +21,7 @@ export default NextAuth({
       clientId: process.env.DISCORD_CLIENT_ID as string,
       clientSecret: process.env.DISCORD_CLIENT_SECRET as string
     }),
-    TwitterProvider({
-      clientId: process.env.TWITTER_CLIENT_ID as string,
-      clientSecret: process.env.TWITTER_CLIENT_SECRET as string
-    })
+
     // Passwordless / email sign in
   ],
   secret:process.env.NEXTAUTH_SECRET
