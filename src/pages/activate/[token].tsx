@@ -6,9 +6,6 @@ import { useEffect, useState } from "react";
 export default function Activate({ token }: { token: string }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  useEffect(() => {
-    activateAccount();
-  }, [token]);
   const activateAccount = async () => {
     try {
       const { data } = await axios.put("/api/auth/activate", { token });
@@ -17,6 +14,10 @@ export default function Activate({ token }: { token: string }) {
       setError((error?.response?.data as Error).message);
     }
   };
+  useEffect(() => {
+    activateAccount();
+  }, [,token,activateAccount]);
+  
   return (
     <div className="bg-black h-screen flex items-center justify-center text-center">
       {error && (

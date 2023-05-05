@@ -76,7 +76,7 @@ const RegisterForm: React.FunctionComponent<IRegisterFormProps> = (props) => {
   };
   useEffect(() => {
     setPasswordScore(validatePasswordStrength());
-  }, [watch().password]);
+  }, [watch().password,validatePasswordStrength]);
   return (
     <div className="w-full px-12 py-4">
       <h2 className="text-center text-2xl font-bold tracking-wide text-gray-800">
