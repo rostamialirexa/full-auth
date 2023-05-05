@@ -9,9 +9,10 @@ import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
 import { JWT } from "next-auth/jwt";
 import { Adapter, AdapterUser } from "next-auth/adapters";
-import connectDb from "@/utils/connectDb";
+
 import UserModal from "@/models/User";
 import bcrypt from "bcryptjs";
+import connectDB from "@/utils/connectDb";
 export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   providers: [
@@ -28,7 +29,7 @@ export default NextAuth({
         },
       },
       async authorize(credentials) {
-        await connectDb();
+        await connectDB();
         const user = await UserModal.findOne({ email: credentials!.email });
         if (!user) {
           throw new Error("Email is not registered.");
