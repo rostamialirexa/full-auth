@@ -50,7 +50,7 @@ export default function auth({
           </div>
         </div>
 
-        {/*--Background--*/}
+        {/*--Background here--*/}
         <Background
           image={`"../../auth/${tab == "signup" ? "register" : "login"}.jpg"`}
         />
